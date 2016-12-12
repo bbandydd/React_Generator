@@ -14,7 +14,7 @@ class Setting extends Component {
 
     render() {
         const { componentName, group } = this.props.settingReducer;
-        const { changeName } = this.props.settingAction;
+        const { changeName, toggleButton } = this.props.settingAction;
 
         return (
             <div>
@@ -24,7 +24,15 @@ class Setting extends Component {
                     onChange={changeName}
                     style={{margin: '0px 10px 20px 10px'}}
                 />
-                {group.map((obj, idx) => <Feature key={`Feature_${idx}`} text={obj.text} children={obj.children} />)}
+                {group.map((obj, idx) => (
+                    <Feature 
+                        key={`Feature_${idx}`} 
+                        parentIndex={idx} 
+                        text={obj.text} 
+                        children={obj.children} 
+                        toggleButton={toggleButton}
+                    />
+                ))}
             </div>
         )
     }

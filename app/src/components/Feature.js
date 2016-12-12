@@ -17,7 +17,7 @@ const styles = {
     }
 }
 
-const Feature = ({ text, children }) => (
+const Feature = ({ parentIndex, text, children, toggleButton }) => (
     <div style={styles.container}>
         <p style={styles.title}>
             {text}
@@ -26,8 +26,8 @@ const Feature = ({ text, children }) => (
             {children.map((obj, idx) => (
                 <Chip
                     key={`Chip_${idx}`}
-                    onTouchTap={() => {}}
                     style={obj.clicked ? {...styles.button, ...styles.clicked} : styles.button}
+                    onTouchTap={()=> toggleButton(parentIndex, idx)}
                 >
                     {obj.name}
                 </Chip>
