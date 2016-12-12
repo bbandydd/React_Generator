@@ -14,7 +14,8 @@ const styles = {
     },
     code_area: {
         float: 'left',
-        width: '60%',
+        width: 'calc(60% - 40px)',
+        padding: '20px'
     }
 }
 

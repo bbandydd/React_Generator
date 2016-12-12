@@ -20,7 +20,7 @@ export const initialState = {
         }, {
             text: 'Redux',
             children: [
-                {name: 'Connect', clicked: false}
+                {name: 'connect', clicked: false}
             ]
         }
     ]
