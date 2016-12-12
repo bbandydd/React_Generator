@@ -9,14 +9,14 @@ import * as settingAction from '../actions/settingAction';
 const styles = {
     setting_area: {
         float: 'left',
-        width: 'calc(30% - 40px)',
+        width: 'calc(40% - 40px)',
         height: '100%',
         padding: '20px',
         backgroundColor: '#eee'
     },
     code_area: {
         float: 'left',
-        width: '70%',
+        width: '60%',
     }
 }
 
@@ -31,19 +31,21 @@ class App extends React.Component {
 
   render(){
 
-    const { setting, settingAction } = this.props;
+    const { componentName, group } = this.props.settingReducer;
+    const { changeName } = this.props.settingAction;
 
     return (
         <div style={{height: '100%'}}>
             <div style={styles.setting_area}>
                 <Setting
-                    componentName={setting.componentName}
-                    changeName={settingAction.changeName}
+                    componentName={componentName}
+                    changeName={changeName}
+                    group={group}
                 />
             </div>
             <div style={styles.code_area}>
                 <CodeBlock 
-                    componentName={setting.componentName}
+                    componentName={componentName}
                 />
             </div>     
         </div>
@@ -53,7 +55,7 @@ class App extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        setting: state.settingReducer
+        settingReducer: state.settingReducer
     }
 }
 

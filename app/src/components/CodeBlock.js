@@ -17,9 +17,9 @@ const CodeBlock = ({ componentName }) => {
                 const {props} = this;
 
                 return (
-                <div>
-                    ${componentName}
-                </div>
+                    <div>
+                        ${componentName}
+                    </div>
                 )
             }
         }

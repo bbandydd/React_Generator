@@ -5,16 +5,25 @@ const initialState = {
     group: [
         {
             text: 'Life Cycle',
-            children: []
-        }, {
-            text: 'Immutable JS',
-            children: []
-        }, {
+            children: [
+                {name: 'componentWillMount', clicked: false},
+                {name: 'componentDidMount', clicked: true},
+                {name: 'componentWillReceiveProps', clicked: false},
+                {name: 'shouldComponentUpdate', clicked: false},
+                {name: 'componentWillUpdate', clicked: false},
+                {name: 'componentDidUpdate', clicked: false},
+                {name: 'componentWillUnmount', clicked: false}
+            ]
+        },{
             text: 'React Router',
-            children: []
+            children: [
+                {name: 'Link', clicked: false}
+            ]
         }, {
             text: 'Redux',
-            children: []
+            children: [
+                {name: 'Connect', clicked: false}
+            ]
         }
     ]
 }
