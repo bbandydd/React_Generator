@@ -1,4 +1,5 @@
-# React Component Creator
+# React Generator
 
-- Create React Component
-- [DEMO](https://bbandydd.github.io/Component_Creator/)
+## [DEMO](https://bbandydd.github.io/Component_Creator/)
+
+1. Create React Component
