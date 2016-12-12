@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux'
 import TextField from 'material-ui/TextField';
 
-import * as settingAction from '../actions/settingAction';
+import * as settingAction from '../../actions/Component/settingAction';
 
-import Feature from '../components/Feature';
+import Feature from '../../components/Component/Feature';
 
 class Setting extends Component {
     constructor(props) {

@@ -1,5 +1,5 @@
-import { CHANGE_COMPONENT_NAME, TOGGLE_BUTTON } from '../constants/settingConstant';
-import { initialState } from '../constants/initial';
+import { CHANGE_COMPONENT_NAME, TOGGLE_BUTTON } from '../../constants/Component/settingConstant';
+import { initialState } from '../../constants/Component/initial';
 
 const settingReducer = (state=initialState, action) => {
     switch(action.type) {

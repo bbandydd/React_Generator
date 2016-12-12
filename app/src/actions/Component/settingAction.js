@@ -1,4 +1,4 @@
-import { CHANGE_COMPONENT_NAME, TOGGLE_BUTTON } from '../constants/settingConstant';
+import { CHANGE_COMPONENT_NAME, TOGGLE_BUTTON } from '../../constants/Component/settingConstant';
 
 export const changeName = (e) =>  {
     return {

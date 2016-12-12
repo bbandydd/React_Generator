@@ -7,7 +7,7 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 
 import store from './store'
-import App from './containers/App';
+import App from './containers/Component/App';
 
 ReactDOM.render(
   <Provider store={store}>
