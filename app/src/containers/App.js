@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux'
-import Setting from '../components/Setting';
-import CodeBlock from '../components/CodeBlock';
-
-import * as settingAction from '../actions/settingAction';
+import Setting from './Setting';
+import CodeBlock from './CodeBlock';
 
 const styles = {
     setting_area: {
@@ -25,44 +23,19 @@ class App extends React.Component {
     super(props);
   }
 
-  componentDidUpdate() {
-    Prism.highlightAll();
-  }
-
   render(){
-
-    const { componentName, group } = this.props.settingReducer;
-    const { changeName } = this.props.settingAction;
 
     return (
         <div style={{height: '100%'}}>
             <div style={styles.setting_area}>
-                <Setting
-                    componentName={componentName}
-                    changeName={changeName}
-                    group={group}
-                />
+                <Setting />
             </div>
             <div style={styles.code_area}>
-                <CodeBlock 
-                    componentName={componentName}
-                />
+                <CodeBlock />
             </div>     
         </div>
     );
   }
 }
 
-const mapStateToProps = (state) => {
-    return {
-        settingReducer: state.settingReducer
-    }
-}
-
-const mapDispatchToProps = (dispatch) => {
-    return {
-        settingAction: bindActionCreators(settingAction, dispatch)
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;
