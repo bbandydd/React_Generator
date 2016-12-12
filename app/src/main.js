@@ -24,7 +24,7 @@ class Main extends React.Component {
     `
       class ${this.state.name} extends Component {
         constructor() {
-          super()
+          super();
         }
 
         render() {
@@ -37,6 +37,11 @@ class Main extends React.Component {
       }
     `
 
+    const exportBlock = 
+    `
+      export default ${this.state.name};
+    `
+
     return (
       <div>
         <input type="text" value={this.state.name} onChange={this.changeName}/>
@@ -44,6 +49,7 @@ class Main extends React.Component {
           <code className="language-javascript">
             {importBlock}
             {content}
+            {exportBlock}
           </code>
         </pre>       
       </div>
