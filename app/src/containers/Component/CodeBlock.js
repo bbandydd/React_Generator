@@ -122,7 +122,8 @@ class CodeBlock extends Component {
                 return {
                     action: bindActionCreators(action, dispatch)
                 }
-            }`
+            }
+            `
             : ``;
 
         return mapFunction;
