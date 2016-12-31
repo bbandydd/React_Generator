@@ -6,15 +6,14 @@ import TextField from 'material-ui/TextField';
 import * as settingAction from '../../actions/Component/settingAction';
 import Feature from '../../components/Component/Feature';
 
-@connect((state) => {
-    return {
+@connect(
+    state => ({
         settingReducer: state.settingReducer
-    }
-}, (dispatch) => {
-    return {
+    }), 
+    dispatch => ({
         settingAction: bindActionCreators(settingAction, dispatch)
-    }
-})
+    })
+)
 export default class Setting extends Component {
     constructor(props) {
         super(props);
