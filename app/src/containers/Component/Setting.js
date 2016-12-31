@@ -4,10 +4,18 @@ import { bindActionCreators } from 'redux'
 import TextField from 'material-ui/TextField';
 
 import * as settingAction from '../../actions/Component/settingAction';
-
 import Feature from '../../components/Component/Feature';
 
-class Setting extends Component {
+@connect((state) => {
+    return {
+        settingReducer: state.settingReducer
+    }
+}, (dispatch) => {
+    return {
+        settingAction: bindActionCreators(settingAction, dispatch)
+    }
+})
+export default class Setting extends Component {
     constructor(props) {
         super(props);
     }
@@ -37,17 +45,3 @@ class Setting extends Component {
         )
     }
 };
-
-const mapStateToProps = (state) => {
-    return {
-        settingReducer: state.settingReducer
-    }
-}
-
-const mapDispatchToProps = (dispatch) => {
-    return {
-        settingAction: bindActionCreators(settingAction, dispatch)
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Setting)

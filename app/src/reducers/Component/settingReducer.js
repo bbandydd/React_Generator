@@ -11,6 +11,7 @@ const settingReducer = (state=initialState, action) => {
         case TOGGLE_BUTTON:
             const { parentIndex, index } = action;
 
+            // group 抽出去一個funtion return newGroup
             return {
                 ...state,
                 group: [

@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-class CodeBlock extends Component {
+@connect((state) => {
+    return {
+        settingReducer: state.settingReducer
+    }
+})
+export default class CodeBlock extends Component {
     constructor(props) {
         super(props);
     }
@@ -154,11 +159,3 @@ class CodeBlock extends Component {
         return exportBlock;
     }
 };
-
-const mapStateToProps = (state) => {
-    return {
-        settingReducer: state.settingReducer
-    }
-}
-
-export default connect(mapStateToProps)(CodeBlock);
