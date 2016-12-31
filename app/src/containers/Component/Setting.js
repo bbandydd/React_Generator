@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux'
 import TextField from 'material-ui/TextField';
 
-import * as settingAction from '../../actions/Component/settingAction';
+import settingAction from '../../actions/Component/settingAction';
 import Feature from '../../components/Component/Feature';
 
 @connect(

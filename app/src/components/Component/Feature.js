@@ -23,11 +23,11 @@ const Feature = ({ parentIndex, text, children, toggleButton }) => (
             {text}
         </p>
         <div>
-            {children.map((obj, idx) => (
+            {children.map((obj, index) => (
                 <Chip
-                    key={`Chip_${idx}`}
+                    key={`Chip_${index}`}
                     style={obj.clicked ? {...styles.button, ...styles.clicked} : styles.button}
-                    onTouchTap={()=> toggleButton(parentIndex, idx)}
+                    onTouchTap={()=> toggleButton({parentIndex, index})}
                 >
                     {obj.name}
                 </Chip>
