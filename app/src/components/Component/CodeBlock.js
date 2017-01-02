@@ -25,25 +25,22 @@ export default class CodeBlock extends Component {
     getImportBlock = () => {
         const { componentName, group } = this.props.settingReducer;
 
-        let importBlock = 
-        `
-            import React, { Component } from 'react';`
+        let importBlock =[`
+            import React, { Component } from 'react';`];
 
-        let router = '';
+        let router = [];
         group[1].children.filter(x=>x.clicked).forEach((obj) => {
-            router += 
-            `
-            import { Link } from 'react-router';`
+            router.push( `
+            import { Link } from 'react-router';`);
         });
-        importBlock += router;
+        importBlock.push(router.join(''));
 
-        let redux = '';
+        let redux = [];
         group[2].children.filter(x=>x.clicked).forEach((obj) => {
-            redux +=
-            `
-            import { connect } from 'react-redux';`
+            redux.push(`
+            import { connect } from 'react-redux';`);
         })
-        importBlock += redux;
+        importBlock.push(redux.join(''));
 
         const connectEnable = group[2].children.filter(x => x.clicked && x.name=='connect').length > 0;
         let action = connectEnable
@@ -51,65 +48,59 @@ export default class CodeBlock extends Component {
             import { bindActionCreators } from 'redux';
             import * as action from 'yourPath/indexAction';`
         : ``;
-        importBlock += action;
+        importBlock.push(action);
        
-        return importBlock + `
+        return importBlock.join('') + `
         `;
     }
 
     getContent = () => {
         const { componentName, group } = this.props.settingReducer;
 
-        let lifecycle = ``;
+        let lifecycle = [];
         group[0].children.filter(x=>x.clicked).forEach((obj) => {
-            lifecycle += 
-            `
+            lifecycle.push(`
                 ${obj.name}() {
 
                 }
-            `            
+            `);
         })
 
-        let Link = ``;
+        let Link = [];
         group[1].children.filter(x=>x.clicked && x.name=='Link').forEach((obj) => {
-            Link += 
-            `
-                            <Link to="/path">Link</Link>`
+            Link.push(`
+                            <Link to="/path">Link</Link>`);
         })
 
         const connectEnable = group[2].children.filter(x => x.clicked && x.name=='connect').length > 0;
-        let props = connectEnable 
+        const props = connectEnable 
         ? `
                     const { reducer, action } = this.props;
         `
         :``;
-        
-        const content =
-        `
+
+        return `
             class ${componentName} extends Component {
                 constructor(props) {
                     super(props);
                 }
-                ${lifecycle}
+                ${lifecycle.join('')}
                 render() {${props}
                     return (
                         <div>
-                            This is ${componentName}${Link}
+                            This is ${componentName}${Link.join('')}
                         </div>
                     )
                 }
             }
-        `
-
-        return content;
+        `;
     }
 
     getMapFunction = () => {
         const { componentName, group } = this.props.settingReducer;
-
         const connectEnable = group[2].children.filter(x => x.clicked && x.name=='connect').length > 0;
 
-        let mapFunction = connectEnable 
+        return connectEnable 
             ? `
             const mapStateToProps = (state) => {
                 return {
@@ -124,32 +115,21 @@ export default class CodeBlock extends Component {
             }
             `
             : ``;
-
-        return mapFunction;
     }
 
     getExportBlock = () => {
         const { componentName, group } = this.props.settingReducer;
-
         const connectEnable = group[2].children.filter(x => x.clicked && x.name=='connect').length > 0;
 
-        let exportBlock = ``;
-
-        if (connectEnable) {
-            exportBlock = 
-            `
-            export default connect(
-                mapStateToProps, 
-                mapDispatchToProps
-            )(${componentName});
-            `
-        } else {
-            exportBlock = 
-            `
-            export default ${componentName};
-            `
-        }
-
-        return exportBlock;
+        return connectEnable 
+            ? `
+                export default connect(
+                    mapStateToProps, 
+                    mapDispatchToProps
+                )(${componentName});
+                `
+            :  `
+                export default ${componentName};
+                `;
     }
 };
