@@ -1,19 +1,8 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux'
 import TextField from 'material-ui/TextField';
 
-import settingAction from '../../actions/Component/settingAction';
-import Feature from '../../components/Component/Feature';
+import Feature from './Feature';
 
-@connect(
-    state => ({
-        settingReducer: state.settingReducer
-    }), 
-    dispatch => ({
-        settingAction: bindActionCreators(settingAction, dispatch)
-    })
-)
 export default class Setting extends Component {
     constructor(props) {
         super(props);

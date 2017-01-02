@@ -1,11 +1,5 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 
-@connect(
-    state => ({
-        settingReducer: state.settingReducer
-    })
-)
 export default class CodeBlock extends Component {
     constructor(props) {
         super(props);

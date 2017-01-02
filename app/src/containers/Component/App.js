@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux'
-import Setting from './Setting';
-import CodeBlock from './CodeBlock';
+import SettingContainer from './SettingContainer';
+import CodeBlockContainer from './CodeBlockContainer';
 
 const styles = {
     setting_area: {
@@ -29,10 +29,10 @@ class App extends React.Component {
     return (
         <div style={{height: '100%'}}>
             <div style={styles.setting_area}>
-                <Setting />
+                <SettingContainer />
             </div>
             <div style={styles.code_area}>
-                <CodeBlock />
+                <CodeBlockContainer />
             </div>     
         </div>
     );
