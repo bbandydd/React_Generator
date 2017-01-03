@@ -10,9 +10,7 @@ import CodeBlock from '../../components/Component/CodeBlock';
 export default class CodeBlockContainer extends Component {
     render() {
         return (
-            <CodeBlock 
-                {...this.props}
-            />
+            <CodeBlock  {...this.props} />
         )
     }
 }
